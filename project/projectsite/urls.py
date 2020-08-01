@@ -27,5 +27,6 @@ urlpatterns = [
     path('register/', uview.register, name='register-users'),
     path('profile/', uview.profile, name='profile'),
     path('search/', uview.SearchView, name='search'),
-    path('', include('feeds.urls')),
-]
+    path('', include('feeds.urls'))
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

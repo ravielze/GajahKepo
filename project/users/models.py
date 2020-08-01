@@ -1,13 +1,23 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 from PIL import Image
 
+STATUS_CHOICES = (('m', 'Mahasiswa'), ('d', 'Dosen'), ('a', 'Alumni'), ('s', 'Anak SMA'))
+SEX_CHOICES = (('m', 'Male'), ('f', 'Female'))
+
 class Profile(models.Model):
+
+    def userDirectory(self, filename):
+        return '{0}/{1}'.format(self.user.username, filename)
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    bio = models.TextField(max_length=100)
-    dob = models.DateTimeField()
-    # REVIEW default png
-    image = models.ImageField(default = 'default.png', upload_to='pics_storage')
+    bio = models.TextField(default="This is a default bio.", max_length=100, null=True)
+    dob = models.DateField(null=True)
+    sex = models.CharField(max_length=1, choices=SEX_CHOICES, null=True)
+    status = models.CharField(max_length=1, choices=STATUS_CHOICES, null=True)
+
+    image = models.ImageField(default = 'default.png', upload_to=userDirectory)
 
     def __str__(self):
         return f'{self.user.username} Profile'
