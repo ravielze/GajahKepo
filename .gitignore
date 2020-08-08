@@ -1,2 +1,7 @@
 env
 **/__pycache__
+.vscode
+database.sqlite3
+env.bat
+media/**
+!media/default.png

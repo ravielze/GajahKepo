@@ -1,0 +1,11 @@
+{% extends "feeds/base.html" %}
+{% block content %}
+<div class="container">
+    <h3>You've been logged out</h3>
+    <div>
+        <small>
+            Back to <a href="{% url 'login' %}">Home</a>
+        </small>
+    </div>
+</div>
+{% endblock content %}

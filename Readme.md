@@ -17,6 +17,17 @@
 | 16519466 | Febriawan Ghally Ar Rahman   |            |
 | 16519479 | Azmi Muhammad Syazwana       |            |
 
+# Project Description
+Web Application using Django (Python Web Framework)
+Required Modules:
+- dj-database-url 0.5.0
+- Django 3.0.7
+- django-crispy-forms 1.9.0
+- Jinja2 2.10.1
+- Pillow 6.2.2
+- pytz 2018.5
+- sqlparse 0.3.1
+
 # Tutorial Pengunaan
 1. Lorem ipsum
 2. idem
@@ -24,3 +35,14 @@
 4. idem
 5. idem
 6. idem
+
+# Todolist
+- [] Bug like
+- [] Buang trend
+- [] Benerin tampilan profile
+- [] Benerin navbar supaya lengkap
+- [] Tombol Login/Register
+- [] Tombol Tweet/Submit Comment
+- [] Warna background, ngubah warna keseluruhan
+- [] Nulis terms of condition, atau syarat pemakaian gajah kepo
+- [] Kolom search
