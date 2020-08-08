@@ -3,5 +3,5 @@ env
 .vscode
 database.sqlite3
 env.bat
-project/media/**
-!project/media/default.png
+media/**
+!media/default.png

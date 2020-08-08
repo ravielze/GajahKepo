@@ -41,7 +41,7 @@ class PostListView(LoginRequiredMixin, ListView):
         qs = Follow.objects.filter(user=user)
         follows = [user]
         for obj in qs:
-            follows.append(obj.follow_user)
+            follows.append(obj.followUser)
         return Post.objects.filter(author__in=follows).order_by('-posted')
 
 class UserPostListView(LoginRequiredMixin, ListView):
@@ -62,7 +62,7 @@ class UserPostListView(LoginRequiredMixin, ListView):
             can_follow = False
         else:
             can_follow = (Follow.objects.filter(user=logged_user,
-                                                follow_user=visible_user).count() == 0)
+                                                followUser=visible_user).count() == 0)
         data = super().get_context_data(**kwargs)
 
         data['user_profile'] = visible_user
@@ -76,10 +76,10 @@ class UserPostListView(LoginRequiredMixin, ListView):
     def post(self, request, *args, **kwargs):
         if request.user.id is not None:
             follows_between = Follow.objects.filter(user=request.user,
-                                                    follow_user=self.visible_user())
+                                                    followUser=self.visible_user())
 
             if 'follow' in request.POST:
-                    new_relation = Follow(user=request.user, follow_user=self.visible_user())
+                    new_relation = Follow(user=request.user, followUser=self.visible_user())
                     if follows_between.count() == 0:
                         new_relation.save()
             elif 'unfollow' in request.POST:
@@ -95,7 +95,7 @@ class PostDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
-        comments_connected = Comment.objects.filter(post_connected=self.get_object()).order_by('-posted')
+        comments_connected = Comment.objects.filter(relatedPost=self.get_object()).order_by('-posted')
         data['comments'] = comments_connected
         data['form'] = NewCommentForm(instance=self.request.user)
         return data
@@ -103,7 +103,7 @@ class PostDetailView(DetailView):
     def post(self, request, *args, **kwargs):
         new_comment = Comment(content=request.POST.get('content'),
                               author=self.request.user,
-                              post_connected=self.get_object())
+                              relatedPost=self.get_object())
         new_comment.save()
 
         return self.get(self, request, *args, **kwargs)
@@ -116,7 +116,7 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     success_url = '/'
 
     def test_func(self):
-        return is_users(self.get_object().author, self.request.user)
+        return isUser(self.get_object().author, self.request.user)
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
@@ -144,7 +144,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         return super().form_valid(form)
 
     def test_func(self):
-        return is_users(self.get_object().author, self.request.user)
+        return isUser(self.get_object().author, self.request.user)
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
@@ -179,11 +179,63 @@ class FollowersListView(ListView):
 
     def get_queryset(self):
         user = self.visible_user()
-        return Follow.objects.filter(follow_user=user).order_by('-date')
+        return Follow.objects.filter(followUser=user).order_by('-date')
 
     def get_context_data(self, *, object_list=None, **kwargs):
         data = super().get_context_data(**kwargs)
         data['follow'] = 'followers'
         return data
 
-# TODO Like
+@login_required
+def postpreference(request, postid, userpreference):
+    if request.method == "POST":
+        eachpost= get_object_or_404(Post, id=postid)
+        obj=''
+        valueobj=''
+        try:
+            obj= Preference.objects.get(user= request.user, post= eachpost)
+            valueobj= obj.value 
+            valueobj= int(valueobj)
+            userpreference= int(userpreference)
+            if valueobj != userpreference:
+                obj.delete()
+                upref= Preference()
+                upref.user= request.user
+                upref.post= eachpost
+                upref.value= userpreference
+                if userpreference == 1 and valueobj != 1:
+                    eachpost.likes += 1
+                elif userpreference == 2 and valueobj != 2:
+                    eachpost.likes -= 1
+                upref.save()
+                eachpost.save()
+                context= {'eachpost': eachpost, 'postid': postid}
+                return redirect('feeds-home')
+            elif valueobj == userpreference:
+                obj.delete()
+                if userpreference == 1:
+                    eachpost.likes -= 1
+                eachpost.save()
+                context= {'eachpost': eachpost, 'postid': postid}
+                return redirect('feeds-home')
+                            
+        except Preference.DoesNotExist:
+            upref= Preference()
+            upref.user= request.user
+            upref.post= eachpost
+            upref.value= userpreference
+            userpreference= int(userpreference)
+            if userpreference == 1:
+                eachpost.likes += 1
+            upref.save()
+            eachpost.save()                            
+
+            context= {'post': eachpost, 'postid': postid}
+
+            return redirect('feeds-home')
+
+    else:
+        eachpost= get_object_or_404(Post, id=postid)
+        context= {'eachpost': eachpost, 'postid': postid}
+
+        return redirect('feeds-home')

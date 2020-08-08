@@ -35,3 +35,14 @@ Required Modules:
 4. idem
 5. idem
 6. idem
+
+# Todolist
+- [] Bug like
+- [] Buang trend
+- [] Benerin tampilan profile
+- [] Benerin navbar supaya lengkap
+- [] Tombol Login/Register
+- [] Tombol Tweet/Submit Comment
+- [] Warna background, ngubah warna keseluruhan
+- [] Nulis terms of condition, atau syarat pemakaian gajah kepo
+- [] Kolom search
