@@ -5,7 +5,7 @@
 
 | NIM      | Nama                         | Kontribusi |
 |----------|------------------------------|------------|
-| 16519015 | Steven Nataniel              |            |
+| 16519015 | Steven Nataniel              | Mockup, Backend |
 | 16519118 | Zarfa Naida Pratista         |            |
 | 16519127 | Muhammad Raflie Dwi Putra    |            |
 | 16519149 | Elisabeth Gunawan            |            |
@@ -37,12 +37,12 @@ Required Modules:
 6. idem
 
 # Todolist
-- [] Bug like
-- [] Buang trend
-- [] Benerin tampilan profile
-- [] Benerin navbar supaya lengkap
-- [] Tombol Login/Register
-- [] Tombol Tweet/Submit Comment
-- [] Warna background, ngubah warna keseluruhan
-- [] Nulis terms of condition, atau syarat pemakaian gajah kepo
-- [] Kolom search
+- [ ] Bug like
+- [ ] Buang trend
+- [ ] Benerin tampilan profile
+- [ ] Benerin navbar supaya lengkap
+- [ ] Tombol Login/Register
+- [ ] Tombol Tweet/Submit Comment
+- [ ] Warna background, ngubah warna keseluruhan
+- [ ] Nulis terms of condition, atau syarat pemakaian gajah kepo
+- [ ] Kolom search
