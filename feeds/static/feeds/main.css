@@ -175,9 +175,9 @@ textarea:focus, input:focus {
 }
 
 .alert-danger {
-  color: #ff00f0 !important;
+  color: #ffffff !important;
   background-color: #4893bb !important;
-  border-color: #ff00f0 !important;
+  border-color: #ffffff !important;
 }
 
 .nav-link:hover {
