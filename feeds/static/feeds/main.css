@@ -148,9 +148,9 @@ textarea:focus, input:focus {
 }
 
 .alert-success {
-  color: #0084ff;
+  color: #ffffff;
   background-color: #4893bb;
-  border-color: #0084ff;
+  border-color: #ffffff;
 }
 
 .pointer-cur {
