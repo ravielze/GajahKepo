@@ -39,11 +39,11 @@ Required Modules:
 
 # Todolist
 - [ ] Bug like
-- [ ] Buang trend
-- [ ] Benerin tampilan profile
-- [ ] Benerin navbar supaya lengkap
-- [ ] Tombol Login/Register
-- [ ] Tombol Tweet/Submit Comment
+- [x] Buang trend
+- [x] Benerin tampilan profile
+- [x] Benerin navbar supaya lengkap
+- [x] Tombol Login/Register
+- [x] Tombol Tweet/Submit Comment
 - [ ] Warna background, ngubah warna keseluruhan
-- [ ] Nulis terms of condition, atau syarat pemakaian gajah kepo
-- [ ] Kolom search
+- [x] Nulis terms of condition, atau syarat pemakaian gajah kepo
+- [x] Kolom search
