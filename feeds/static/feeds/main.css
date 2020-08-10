@@ -98,7 +98,7 @@ a:hover {
   text-underline: none !important;
 }
 .text-muted {
-  color: var(--muted-color) !important;
+  color: #23495e !important;
 }
 
 article {
