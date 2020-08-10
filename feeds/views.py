@@ -239,3 +239,9 @@ def postpreference(request, postid, userpreference):
         context= {'eachpost': eachpost, 'postid': postid}
 
         return redirect('feeds-home')
+
+def TermsAndCondition(request):
+    return render(request, "feeds/termsandcondition.html")
+
+def Team(request):
+    return render(request, "feeds/team.html")

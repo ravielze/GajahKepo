@@ -8,15 +8,15 @@
 | 16519015 | Steven Nataniel              | Mockup, Backend |
 | 16519118 | Zarfa Naida Pratista         | Bab II: Alur Berpikir |
 | 16519127 | Muhammad Raflie Dwi Putra    | Bab IV: Analisis |
-| 16519149 | Elisabeth Gunawan            | Bab III: Solusi, Pembuatan Pwerpoint |
+| 16519149 | Elisabeth Gunawan            | Bab III: Solusi, Pembuatan Pwerpoint, Memberikan icon pada tombol |
 | 16519280 | Alvin Rizqi Alfisyahrin      | Pembuatan Powerpoint, pembuatan logo |
-| 16519318 | Benidictus Galih Mahar Putra | Pembuatan Powerpoint, Bab IV: Analisis |
+| 16519318 | Benidictus Galih Mahar Putra | Pembuatan Powerpoint, Bab IV: Analisis, Pembuatan logo |
 | 16519342 | Muhammad Dzaki Razaan Faza   | Bab III: Solusi |
 | 16519361 | Nadilla Putri Pratiwi        | Finishing laporan, Bab IV: Analisis |
-| 16519463 | Albertus Agung Sinurat       | Bab V: Rangkuman dan Simpulan, Pembuatan Powerpoint |
-| 16519466 | Febriawan Ghally Ar Rahman   | Bab IV: Analisis |
-| 16519479 | Azmi Muhammad Syazwana       | Bab V: Rangkuman dan Simpulan |
-| 16519452 | Vania Alya Qonita            | Bab I: Pendahuluan |
+| 16519463 | Albertus Agung Sinurat       | Bab V: Rangkuman dan Simpulan, Pembuatan Powerpoint, Revisi logo |
+| 16519466 | Febriawan Ghally Ar Rahman   | Bab IV: Analisis, Menulis syarat dan ketentuan |
+| 16519479 | Azmi Muhammad Syazwana       | Bab V: Rangkuman dan Simpulan, Menulis kontribusi team dan syarat dan ketentuan |
+| 16519452 | Vania Alya Qonita            | Bab I: Pendahuluan, Menyesuaikan warna |
 
 # Project Description
 Web Application using Django (Python Web Framework)
