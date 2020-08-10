@@ -90,13 +90,6 @@
             </article>
             
             <div class="d-flex">
-                {% if user_profile is None %}
-                <div style="margin-left: 40px">
-                    <a class="btn btn-sm btn-outline-primary mb-4 mr-3 " href="{% url 'post-create' %}">
-                        Tweet
-                    </a>
-                </div>
-                {% endif %}
                 {%  if user_profile is not None and user_profile.id != user.id  and user.username != '' %}
                     <form method="POST">
                         {% csrf_token %}
@@ -120,7 +113,7 @@
             <div class="full-width row">
                 <div class="col-6">
                     <h3 class="white-important mb-3">
-                        Tweets
+                        Feeds
                     </h3>
                 </div>
                  <div class="col-6 no-padding">
@@ -134,7 +127,7 @@
             </div>
 
             {% for post in posts %}
-                <article class="media content-section hovered-tweet">
+                <article class="media content-section hovered-feed">
                 <div style="width: 100%; word-break: break-all;">
                     
                     <div class="pb-2 row m-0" style="width: 100%; margin-right: 0 !important;">
@@ -247,20 +240,19 @@
             <form action="{% url 'search' %}" method="post">{% csrf_token %}
                 <div class="search-container">
                     <div class="search">
-                    <input required name="search" type="text" id="zip-code-input" placeholder="Search Twitter">
+                    <input required name="search" type="text" id="zip-code-input" placeholder="Search User...">
                     <button type="submit" style="border:0; background: transparent;"><i class="fa fa-search"></i> </button> </a>
                 </form>
               </div>
             </div>
-            <h3 class="white-important mb-3 mt-4"> Trends </h3>
-               
+                <h3> </h3>
                 {%  if user_profile is None %}
                 
                 <article class="t-section media content-section">
                      
                     <div class="row ">
                         <div class="col-12">
-                            <h3>Who to follow</h3>
+                            <h3>People</h3>
                         </div>
                         <ul class="col-12 mt-2">
                             {% for user in all_users %}
@@ -277,8 +269,23 @@
                                            <a class="mr-2 white-important" href="{% url 'user-posts' user.username %}">
                                                {{ user.username }}
                                            </a>
+                                           {% if user.profile.sex == 'm' %}
+                                               <i class="fas fa-mars"></i>
+                                           {% elif user.profile.sex == 'f' %}
+                                               <i class="fas fa-venus"></i>
+                                           {% endif %}
                                        </div>
-                                        <p>{{ user.email }}</p>
+                                       <div>
+                                        {% if user.profile.status == 'd' %}
+                                            <p>Dosen</p>
+                                        {% elif user.profile.status == 'm' %}
+                                            <p>Mahasiswa</p>
+                                        {% elif user.profile.status == 'a' %}
+                                            <p>Alumni</p>
+                                        {% elif user.profile.status == 's' %}
+                                            <p>Anak SMA</p>
+                                        {% endif %}
+                                       </div>
                                     </div>
                                 </li>
                             {% endfor %}
@@ -288,13 +295,13 @@
 
                 </article>
                 {% endif %}
-                <p><a href="">Terms</a>,
-<a href="">Privacy policy</a>,
-<a href="">Cookies</a>,
-<a href="">Ads info</a>,
-<a href="">More</a>
-© 2020 Twitter, Inc.</p>
             
+        </div>
+        <br>
+        <div class="col-6">
+            <h5><a href="">Syarat dan Ketentuan</a>,
+                <a href="">Tim Kami</a>,
+                © 2020 Gajah Kepo.</h5>
         </div>
     </div>
 {% endblock content %}

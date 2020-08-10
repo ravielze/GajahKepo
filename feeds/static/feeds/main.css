@@ -171,16 +171,16 @@ ul {
     list-style: none !important;
 }
 
-.hovered-tweet {
+.hovered-feed {
     background-color: #90909017;
     border-radius: 20px;
 }
 
-.hovered-tweet {
+.hovered-feed {
     border: 1px solid transparent;
 }
 
-.hovered-tweet:hover {
+.hovered-feed:hover {
     -webkit-transition: background-color ease-in-out .2s;
     -webkit-transition: border ease-in-out .2s;
     background-color: #2d3741 !important;
@@ -188,14 +188,14 @@ ul {
     border-radius: 20px;
 }
 
-.hovered-tweet-comment {
+.hovered-feed-comment {
     background-color: #2d3741 !important;
     padding:15px;
     border-radius: 20px;
     border:1px solid grey;
 }
 
-.hovered-tweet-comment-in{
+.hovered-feed-comment-in{
     background-color: #2d3741 !important;
     padding:12px;
     border-radius: 20px;
